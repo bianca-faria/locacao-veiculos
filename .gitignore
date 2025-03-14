@@ -1,0 +1,12 @@
+# Ignore arquivos de build e IDE
+.idea/
+target/
+*.iml
+
+# Ignore arquivos de ambiente
+.env
+
+# Ignore arquivos de Maven Wrapper
+mvnw
+mvnw.cmd
+.mvn/
