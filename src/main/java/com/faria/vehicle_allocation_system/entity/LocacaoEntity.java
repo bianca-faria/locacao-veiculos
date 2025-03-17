@@ -1,8 +1,8 @@
 package com.faria.vehicle_allocation_system.entity;
 
 import jakarta.persistence.*;
+
 import java.time.LocalDate;
-import java.util.UUID;
 
 @Entity
 @Table(name = "tb_locacao")
