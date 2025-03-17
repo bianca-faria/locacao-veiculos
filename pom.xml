@@ -16,7 +16,7 @@
         <java.version>17</java.version>
         <postgresql.version>42.6.0</postgresql.version>
         <lombok.version>1.18.30</lombok.version>
-        <flyway.version>10.15.0</flyway.version>
+        <flyway.version>10.16.0</flyway.version>
         <dotenv.version>3.0.0</dotenv.version>
         <stella.version>2.1.2</stella.version>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
