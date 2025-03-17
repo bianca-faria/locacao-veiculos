@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;
 
-public interface CaminhaoRepository extends JpaRepository<CaminhaoEntity, UUID> {
+public interface CaminhaoRepository extends JpaRepository<CaminhaoEntity, Long> {
 }

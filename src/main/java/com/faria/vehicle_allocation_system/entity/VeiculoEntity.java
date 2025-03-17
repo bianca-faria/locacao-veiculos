@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import java.math.BigDecimal;
-import java.util.UUID;
 
 @Entity
 @Getter
@@ -18,8 +17,8 @@ import java.util.UUID;
 public abstract class VeiculoEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID veiculoId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(nullable = false)
     private String modelo;
@@ -36,5 +35,5 @@ public abstract class VeiculoEntity {
     @Column(nullable = false)
     private BigDecimal valorTaxaAdicional;
 
-    public abstract BigDecimal calcularValorTotal(int dias);
+    public abstract void calcularValorTotal(int dias);
 }

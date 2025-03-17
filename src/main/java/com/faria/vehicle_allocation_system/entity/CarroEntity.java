@@ -1,8 +1,6 @@
 package com.faria.vehicle_allocation_system.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,12 +24,11 @@ public class CarroEntity extends VeiculoEntity {
     private static final BigDecimal TAXA_ADICIONAL_ARCONDICIONADO = BigDecimal.valueOf(50);
 
     @Override
-    public BigDecimal calcularValorTotal(int dias) {
+    public void calcularValorTotal(int dias) {
 
-        BigDecimal taxaAr = Boolean.TRUE.equals(arCondicionado) ? TAXA_ADICIONAL_ARCONDICIONADO : BigDecimal.ZERO;
-        setValorTaxaAdicional(taxaAr);
-
-        BigDecimal valorBase = getValorDiaria().add(taxaAr);
-        return valorBase.multiply(BigDecimal.valueOf(dias));
+//        BigDecimal taxaArCondicionado = Boolean.TRUE.equals(arCondicionado) ? TAXA_ADICIONAL_ARCONDICIONADO : BigDecimal.ZERO;
+//        valorTaxaAdicional(taxaArCondicionado);
+//
+//        BigDecimal valorBase = getValorDiaria().add(taxaArCondicionado);
     }
 }
