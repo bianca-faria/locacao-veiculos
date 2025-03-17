@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;
 
-public interface MotoRepository extends JpaRepository<MotoEntity, UUID> {
+public interface MotoRepository extends JpaRepository<MotoEntity, Long> {
 }

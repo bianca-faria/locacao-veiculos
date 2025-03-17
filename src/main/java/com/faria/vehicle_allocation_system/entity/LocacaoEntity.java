@@ -9,8 +9,8 @@ import java.util.UUID;
 public class LocacaoEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID locacaoId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "cliente_id", nullable = false)

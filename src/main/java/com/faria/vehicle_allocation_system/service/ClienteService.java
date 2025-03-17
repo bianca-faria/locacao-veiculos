@@ -2,27 +2,24 @@ package com.faria.vehicle_allocation_system.service;
 
 import com.faria.vehicle_allocation_system.dto.ClienteDTO;
 import com.faria.vehicle_allocation_system.entity.ClienteEntity;
-import com.faria.vehicle_allocation_system.mapper.ClienteMapper;
 import com.faria.vehicle_allocation_system.repository.ClienteRepository;
 import com.faria.vehicle_allocation_system.util.ValidadorIdade;
 import jakarta.persistence.EntityNotFoundException;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.UUID;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class ClienteService {
 
     private final ClienteRepository clienteRepository;
-    private final ClienteMapper clienteMapper;
     private final ValidadorIdade validadorIdade;
 
-    public ClienteDTO buscarCliente(UUID clienteId) {
-        return clienteRepository.findById(clienteId)
+    public ClienteDTO buscarCliente(Long id) {
+        return clienteRepository.findById(id)
                 .map(clienteMapper::toDTO)
-                .orElseThrow(() -> new EntityNotFoundException("Cliente com ID " + clienteId + " não encontrado."));
+                .orElseThrow(() -> new EntityNotFoundException("Cliente com ID " + id + " não encontrado."));
     }
 
     public ClienteDTO cadastrarCliente(ClienteDTO clienteDTO) {
@@ -34,8 +31,8 @@ public class ClienteService {
         return clienteMapper.toDTO(savedEntity);
     }
 
-    public void deletarCliente(UUID clienteId) {
-        ClienteEntity clienteExistente = clienteRepository.findById(clienteId)
+    public void deletarCliente(Long id) {
+        ClienteEntity clienteExistente = clienteRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Cliente não encontrado."));
         clienteRepository.delete(clienteExistente);
     }

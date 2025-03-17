@@ -18,8 +18,8 @@ import java.util.UUID;
 public abstract class VeiculoEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID veiculoId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(nullable = false)
     private String modelo;

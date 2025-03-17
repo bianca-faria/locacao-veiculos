@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.UUID;
 
-
-public interface ClienteRepository extends JpaRepository<ClienteEntity, UUID> {
+@Repository
+public interface ClienteRepository extends JpaRepository<ClienteEntity, Long> {
 
 }

@@ -3,13 +3,10 @@ package com.faria.vehicle_allocation_system.controller;
 import com.faria.vehicle_allocation_system.dto.ClienteDTO;
 import com.faria.vehicle_allocation_system.service.ClienteService;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/clientes")
@@ -28,13 +25,13 @@ public class ClienteController {
 
     @Operation(summary = "Exibir cliente cadastrado")
     @GetMapping("/{id}")
-    public ResponseEntity<ClienteDTO> buscarCliente(@PathVariable UUID id) {
+    public ResponseEntity<ClienteDTO> buscarCliente(@PathVariable Long id) {
         return ResponseEntity.ok(clienteService.buscarCliente(id));
     }
 
     @Operation(summary = "Deletar cliente cadastrado")
     @DeleteMapping("/{id}")
-    public ResponseEntity<ClienteDTO> deletarCliente(@PathVariable UUID id){
+    public ResponseEntity<ClienteDTO> deletarCliente(@PathVariable Long id){
         clienteService.deletarCliente(id);
         return ResponseEntity.noContent().build();
     }
