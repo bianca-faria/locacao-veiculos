@@ -2,6 +2,7 @@ package com.faria.vehicle_allocation_system.service;
 
 import com.faria.vehicle_allocation_system.dto.ClienteDTO;
 import com.faria.vehicle_allocation_system.entity.ClienteEntity;
+import com.faria.vehicle_allocation_system.mapper.ClienteMapper;
 import com.faria.vehicle_allocation_system.repository.ClienteRepository;
 import com.faria.vehicle_allocation_system.util.ValidadorIdade;
 import jakarta.persistence.EntityNotFoundException;
@@ -15,6 +16,7 @@ public class ClienteService {
 
     private final ClienteRepository clienteRepository;
     private final ValidadorIdade validadorIdade;
+    private final ClienteMapper clienteMapper;
 
     public ClienteDTO buscarCliente(Long id) {
         return clienteRepository.findById(id)

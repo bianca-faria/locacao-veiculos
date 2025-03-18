@@ -13,7 +13,7 @@ public interface ClienteMapper {
     @Mapping(target = "tipoPessoa", source = "tipoPessoa", qualifiedByName = "tipoPessoaToString")
     ClienteDTO toDTO(ClienteEntity clienteEntity);
 
-    @Mapping(target = "clienteId", ignore = true)
+    @Mapping(target = "id", ignore = true)
     @Mapping(target = "tipoPessoa", source = "tipoPessoa", qualifiedByName = "tipoPessoaFromString")
     ClienteEntity toEntity(ClienteDTO clienteDTO);
 

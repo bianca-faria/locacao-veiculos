@@ -23,6 +23,7 @@ public class ClienteDTO {
     @NotBlank(message = "Nome não pode estar vazio")
     private String nome;
 
+    @Getter
     @NotNull(message = "Data de nascimento é obrigatória")
     private LocalDate dataNascimento;
 
@@ -38,8 +39,4 @@ public class ClienteDTO {
 
     @NotNull(message = "Endereço não pode ser vazio")
     private Endereco endereco;
-
-    public LocalDate getDataNascimento() {
-        return dataNascimento;
-    }
 }
