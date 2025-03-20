@@ -1,16 +1,17 @@
-package com.faria.vehicle_allocation_system.entity;
+package com.faria.vehicle_allocation_system.dto;
 
 import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@AllArgsConstructor
-@NoArgsConstructor
+import java.util.UUID;
+
 @Getter
 @Setter
-public class Endereco {
+public class EnderecoDTO {
+
+    private UUID id;
+
     @NotBlank(message = "Logradouro não pode ser vazio")
     private String logradouro;
 

@@ -10,7 +10,7 @@ import java.util.UUID;
 @Setter
 public class VeiculoDTO {
 
-    private UUID veiculoId;
+    private UUID id;
 
     @NotBlank(message = "O modelo do veículo não pode estar vazio")
     private String modelo;

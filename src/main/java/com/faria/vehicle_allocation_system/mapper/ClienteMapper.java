@@ -11,10 +11,12 @@ import org.mapstruct.Named;
 public interface ClienteMapper {
 
     @Mapping(target = "tipoPessoa", source = "tipoPessoa", qualifiedByName = "tipoPessoaToString")
+    @Mapping(target = "endereco", source = "endereco")
     ClienteDTO toDTO(ClienteEntity clienteEntity);
 
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "tipoPessoa", source = "tipoPessoa", qualifiedByName = "tipoPessoaFromString")
+    @Mapping(target = "endereco", source = "endereco")
     ClienteEntity toEntity(ClienteDTO clienteDTO);
 
     @Named("tipoPessoaFromString")

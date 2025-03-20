@@ -1,6 +1,6 @@
 package com.faria.vehicle_allocation_system.dto;
 
-import com.faria.vehicle_allocation_system.entity.Endereco;
+import com.faria.vehicle_allocation_system.entity.EnderecoEntity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.validation.constraints.NotBlank;
@@ -18,7 +18,7 @@ import java.util.UUID;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ClienteDTO {
 
-    private UUID clienteId;
+    private UUID id;
 
     @NotBlank(message = "Nome não pode estar vazio")
     private String nome;
@@ -38,5 +38,5 @@ public class ClienteDTO {
     private LocalDateTime dataCriacao;
 
     @NotNull(message = "Endereço não pode ser vazio")
-    private Endereco endereco;
+    private EnderecoDTO endereco;
 }

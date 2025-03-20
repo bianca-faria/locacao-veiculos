@@ -8,13 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.UUID;
+
 @RestController
 @RequestMapping("/clientes")
 public class ClienteController {
 
     @Autowired
     private ClienteService clienteService;
-    private ClienteDTO clienteDTO;
 
     @Operation(summary = "Criar  cadastro do cliente")
     @PostMapping
@@ -25,13 +26,13 @@ public class ClienteController {
 
     @Operation(summary = "Exibir cliente cadastrado")
     @GetMapping("/{id}")
-    public ResponseEntity<ClienteDTO> buscarCliente(@PathVariable Long id) {
+    public ResponseEntity<ClienteDTO> buscarCliente(@PathVariable  UUID id) {
         return ResponseEntity.ok(clienteService.buscarCliente(id));
     }
 
     @Operation(summary = "Deletar cliente cadastrado")
     @DeleteMapping("/{id}")
-    public ResponseEntity<ClienteDTO> deletarCliente(@PathVariable Long id){
+    public ResponseEntity<ClienteDTO> deletarCliente(@PathVariable UUID id){
         clienteService.deletarCliente(id);
         return ResponseEntity.noContent().build();
     }

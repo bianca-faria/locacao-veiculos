@@ -1,16 +1,20 @@
 package com.faria.vehicle_allocation_system.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "tb_locacao")
 public class LocacaoEntity {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "id", updatable = false, nullable = false)
+    private UUID id = UUID.randomUUID();
 
     @ManyToOne
     @JoinColumn(name = "cliente_id", nullable = false)
@@ -25,4 +29,5 @@ public class LocacaoEntity {
 
     @Column(name = "data_fim", nullable = false)
     private LocalDate dataFim;
+
 }
