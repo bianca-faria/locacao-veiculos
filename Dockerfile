@@ -1,14 +1,23 @@
-# Usa uma imagem do OpenJDK como base
-FROM openjdk:17-jdk-slim
+FROM maven:3.9.9-eclipse-temurin-17 AS build
 
-# Define o diretório de trabalho dentro do contêiner
+COPY src /app/src
+COPY pom.xml /app
+
+
+WORKDIR /app
+RUN mvn clean install
+
+Execução da aplicação
+FROM eclipse-temurin:17-jdk AS runtime
+
+
 WORKDIR /app
 
-# Copia o JAR gerado pela aplicação para o contêiner
-COPY target/vehicle-allocation-system.jar app.jar
 
-# Expõe a porta que a aplicação usará
-EXPOSE 8082
+COPY --from=build /app/target/*.jar vehicle-allocation-system.jar
 
-# Comando para rodar a aplicação dentro do contêiner
-CMD ["java", "-jar", "app.jar"]
+
+EXPOSE 8080
+
+# Comando para rodar a aplicação
+CMD ["java", "-jar", "vehicle-allocation-system.jar"]

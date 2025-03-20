@@ -1,6 +1,7 @@
 # Ignore arquivos de build e IDE
 .idea/
 target/
+database-docker/postgres-data/
 *.iml
 
 # Ignore arquivos de ambiente
